@@ -1,0 +1,31 @@
+<snippet>
+    <content><![CDATA[
+def hexdump(data, length=16):
+    offset = 0
+
+    while data:
+        chunk, data = data[:length], data[length:]
+        output = "{0:08x}: ".format(offset)
+        output += " ".join("{0:02x}".format(x) for x in chunk[:length//2])
+        output += "  "
+        output += " ".join("{0:02x}".format(x) for x in chunk[length//2:])
+
+        output += "  " + " " * (length - len(chunk)) * 3
+        if len(chunk) > length // 2:
+            output += " "
+        output += "".join((32 < x < 127) and chr(x) or "." for x in chunk)
+
+        offset += len(chunk)
+
+        yield output
+
+
+def phexdump(data, length=16):
+    for output in hexdump(data, length):
+        print(output)
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger>!hexdump</tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <scope>source.python</scope>
+</snippet>

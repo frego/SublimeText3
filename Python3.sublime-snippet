@@ -1,0 +1,39 @@
+<snippet>
+    <content><![CDATA[
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+import sys
+if sys.version_info.major < 3: print("[-] You need Python 3."); sys.exit(255)
+
+print("******************************************************************************")
+print("***                  WARNING DEVELOPMENT VERSION                           ***")
+print("******************************************************************************")
+print("")
+
+APP_NAME = "Tool"
+APP_VERSION = "0.1"
+
+#############################################################################
+# Code.                                                                     #
+#############################################################################
+
+
+#############################################################################
+# Main.                                                                     #
+#############################################################################
+
+def Usage(argv):
+    print("Usage: {0}".format(argv))
+    sys.exit(255)
+
+if __name__ == "__main__":
+    print("-=[ {0} v{1} ]=-\n".format(APP_NAME, APP_VERSION))
+
+    sys.exit(0)
+]]></content>
+    <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+    <tabTrigger></tabTrigger>
+    <!-- Optional: Set a scope to limit where the snippet will trigger -->
+    <!-- <scope>source.python</scope> -->
+</snippet>
